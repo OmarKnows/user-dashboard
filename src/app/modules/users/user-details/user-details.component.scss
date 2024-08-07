@@ -35,3 +35,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.w-90 {
+  width: 90vw;
+}
