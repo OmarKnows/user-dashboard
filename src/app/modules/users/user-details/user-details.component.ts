@@ -6,7 +6,7 @@ import {
   input,
   signal,
 } from '@angular/core';
-import { IUserModel, users } from '../dummyData';
+import { IUserModel } from '../dummyData';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
