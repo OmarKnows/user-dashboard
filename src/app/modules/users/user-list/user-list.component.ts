@@ -4,11 +4,17 @@ import { CardComponent } from '../../../common/components/card/card.component';
 import { UsersService } from '../../../services/users.service';
 import { IUser } from '../../../common/types/user.types';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [MatTableModule, CardComponent, MatProgressBarModule],
+  imports: [
+    MatTableModule,
+    CardComponent,
+    MatProgressBarModule,
+    MatPaginatorModule,
+  ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
 })
