@@ -1,13 +1,9 @@
 <div class="user-details-container">
   <div class="user-info">
-    <img
-      [src]="user.avatar"
-      alt="{{ user.first_name }} {{ user.last_name }} Avatar"
-      class="avatar"
-    />
+    <img [src]="user()?.avatar" alt="avatar" class="avatar" />
     <div class="user-name">
-      <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-      <p class="email">{{ user.email }}</p>
+      <h1>{{ user()?.first_name }} {{ user()?.last_name }}</h1>
+      <p class="email">{{ user()?.email }}</p>
     </div>
   </div>
 </div>

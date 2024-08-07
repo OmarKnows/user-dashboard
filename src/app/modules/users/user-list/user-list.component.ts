@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
     const subscription = this.usersService.getUsers().subscribe({
       next: (users) => {
         this.users.set(users);
-        console.log(this.users);
+        console.log(this.users());
       },
       error: (error: Error) => {
         this.error.set(error.message);

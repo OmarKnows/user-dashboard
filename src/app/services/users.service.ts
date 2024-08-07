@@ -17,9 +17,27 @@ export class UsersService {
     return this.fetchUsers();
   }
 
+  getUser(id: string) {
+    return this.fetchUser(id);
+  }
+
   private fetchUsers() {
     return this.httpClient
-      .get<IResponse<IUserModel>>(FAKE_ENV.BASE_URL + EAPI.USERS)
+      .get<IResponse<IUserModel[]>>(FAKE_ENV.BASE_URL + EAPI.USERS)
+      .pipe(
+        map((response: any) => response.data),
+        catchError((error: any) => {
+          console.log(error);
+          return throwError(
+            () => new Error('An error occurred while fetching users')
+          );
+        })
+      );
+  }
+
+  private fetchUser(id: string) {
+    return this.httpClient
+      .get<IResponse<IUserModel>>(FAKE_ENV.BASE_URL + EAPI.USERS + `/${id}`)
       .pipe(
         map((response: any) => response.data),
         catchError((error: any) => {
