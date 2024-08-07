@@ -1,6 +1,11 @@
+@if(isLoading()){
+<mat-progress-bar mode="indeterminate" class="w-100"></mat-progress-bar>
+}
 <h1>Users</h1>
-<div class="grid-container">
-  @for (user of users() ; track user.id) {
-  <app-card [user]="user" />
-  }
+<div class="flex-container">
+  <div class="grid-container">
+    @for (user of users() ; track user.id) {
+    <app-card [user]="user" />
+    }
+  </div>
 </div>

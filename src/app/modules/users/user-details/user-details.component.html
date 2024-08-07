@@ -1,4 +1,7 @@
-<div class="flex-container w-90">
+@if(isLoading()){
+<mat-progress-bar mode="indeterminate" class="w-100"></mat-progress-bar>
+}
+<div class="flex-container">
   <button mat-flat-button class="flex-container" routerLink="..">
     <ng-icon name="heroArrowLeft" size="20"></ng-icon>
   </button>

@@ -6,17 +6,18 @@ import {
   input,
   signal,
 } from '@angular/core';
-import { IUserModel } from '../dummyData';
 import { UsersService } from '../../../services/users.service';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowLeft } from '@ng-icons/heroicons/outline';
 import { RouterLink } from '@angular/router';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { IUser } from '../../../common/types/user.types';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [NgIconComponent, RouterLink, MatButtonModule],
+  imports: [NgIconComponent, RouterLink, MatButtonModule, MatProgressBarModule],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.scss',
   viewProviders: [provideIcons({ heroArrowLeft })],
@@ -27,11 +28,12 @@ export class UserDetailsComponent implements OnInit {
 
   id = input.required<string>();
 
-  user = signal<IUserModel | undefined>(undefined);
+  user = signal<IUser | undefined>(undefined);
   isLoading = signal<boolean>(false);
   error = signal<string | undefined>(undefined);
 
   ngOnInit(): void {
+    this.isLoading.set(true);
     const subscription = this.usersService.getUser(this.id()).subscribe({
       next: (user) => {
         this.user.set(user);

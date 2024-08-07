@@ -1,8 +1,8 @@
 import { Component, input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { IUserModel } from '../../../modules/users/dummyData';
 import { RouterLink } from '@angular/router';
 import { heroArrowRightCircle } from '@ng-icons/heroicons/outline';
+import { IUser } from '../../types/user.types';
 
 @Component({
   selector: 'app-card',
@@ -13,7 +13,7 @@ import { heroArrowRightCircle } from '@ng-icons/heroicons/outline';
   viewProviders: [provideIcons({ heroArrowRightCircle })],
 })
 export class CardComponent {
-  user = input.required<IUserModel>();
+  user = input.required<IUser>();
   formattedName: string = '';
 
   ngOnInit() {

@@ -1,7 +1,19 @@
 .grid-container {
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 75px;
   grid-row-gap: 75px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.w-100 {
+  width: 100vw;
 }
