@@ -1,0 +1,12 @@
+<div class="card-container">
+  <div class="avatar">
+    <img [src]="user().avatar" [alt]="user().first_name" />
+  </div>
+  <p>{{ formattedName }}</p>
+  <div class="link-container">
+    <a [routerLink]="user().id.toString()">
+      View Profile
+      <ng-icon name="heroArrowRightCircle"></ng-icon>
+    </a>
+  </div>
+</div>

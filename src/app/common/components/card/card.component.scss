@@ -1,0 +1,43 @@
+.card-container {
+  width: 250px;
+  height: 305px;
+  border: 1px solid #b2b2b2;
+  padding-top: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.link-container {
+  background-color: rgb(165, 69, 212);
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000000;
+}
+
+p {
+  font-weight: bold;
+}
