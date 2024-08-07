@@ -1,1 +1,6 @@
-<p>user-list works!</p>
+<h1>Users</h1>
+<div class="grid-container">
+  @for (user of usersList ; track user.id) {
+  <app-card [user]="user" />
+  }
+</div>
