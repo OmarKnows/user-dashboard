@@ -4,7 +4,7 @@ import { CardComponent } from '../../../common/components/card/card.component';
 import { UsersService } from '../../../services/users.service';
 import { IUser } from '../../../common/types/user.types';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-user-list',
@@ -26,12 +26,26 @@ export class UserListComponent implements OnInit {
   isLoading = signal<boolean>(false);
   error = signal<string | undefined>(undefined);
 
+  page = signal<number>(1);
+  per_page = signal<number>(1);
+  total = signal<number>(1);
+  total_pages = signal<number>(1);
+
   ngOnInit(): void {
+    const subscription = this.fetchUsers();
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
+  }
+
+  fetchUsers() {
     this.isLoading.set(true);
-    const subscription = this.usersService.getUsers().subscribe({
-      next: (users) => {
-        this.users.set(users);
-        console.log(this.users());
+    return this.usersService.getUsers(this.page()).subscribe({
+      next: (response) => {
+        this.users.set(response.data);
+        this.per_page.set(response.per_page);
+        this.total.set(response.total);
+        this.total_pages.set(response.total_pages);
       },
       error: (error: Error) => {
         this.error.set(error.message);
@@ -40,9 +54,16 @@ export class UserListComponent implements OnInit {
         this.isLoading.set(false);
       },
     });
+  }
 
-    this.destroyRef.onDestroy(() => {
-      subscription.unsubscribe();
-    });
+  onPageChange(event: PageEvent) {
+    if (typeof event.previousPageIndex !== 'undefined') {
+      if (event.pageIndex > event.previousPageIndex) {
+        this.page.set(this.page() + 1);
+      } else {
+        this.page.set(this.page() - 1);
+      }
+    }
+    this.fetchUsers();
   }
 }

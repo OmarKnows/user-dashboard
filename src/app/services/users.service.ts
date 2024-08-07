@@ -12,24 +12,25 @@ import { IUser } from '../common/types/user.types';
 export class UsersService {
   private httpClient = inject(HttpClient);
 
-  getUsers() {
-    return this.fetchUsers();
+  getUsers(page?: number) {
+    return this.fetchUsers(page);
   }
 
   getUser(id: string) {
     return this.fetchUser(id);
   }
 
-  private fetchUsers() {
-    return this.httpClient.get<IResponse<IUser[]>>(EAPI.USERS).pipe(
-      map((response: any) => response.data),
-      catchError((error: any) => {
-        console.log(error);
-        return throwError(
-          () => new Error('An error occurred while fetching users')
-        );
-      })
-    );
+  private fetchUsers(page?: number) {
+    return this.httpClient
+      .get<IResponse<IUser[]>>(EAPI.USERS + `?page=${page}`)
+      .pipe(
+        catchError((error: any) => {
+          console.log(error);
+          return throwError(
+            () => new Error('An error occurred while fetching users')
+          );
+        })
+      );
   }
 
   private fetchUser(id: string) {
