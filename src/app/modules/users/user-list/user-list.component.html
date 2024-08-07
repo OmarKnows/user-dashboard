@@ -1,6 +1,6 @@
 <h1>Users</h1>
 <div class="grid-container">
-  @for (user of usersList ; track user.id) {
+  @for (user of users() ; track user.id) {
   <app-card [user]="user" />
   }
 </div>
