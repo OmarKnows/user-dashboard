@@ -1,10 +1,10 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { CardComponent } from '../../../common/components/card/card.component';
-import { UsersService } from '../../../services/users.service';
 import { IUser } from '../../../common/types/user.types';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-user-list',
@@ -23,6 +23,7 @@ export class UserListComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
 
   users = signal<IUser[] | undefined>(undefined);
+
   isLoading = signal<boolean>(false);
   error = signal<string | undefined>(undefined);
 
@@ -57,13 +58,7 @@ export class UserListComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    if (typeof event.previousPageIndex !== 'undefined') {
-      if (event.pageIndex > event.previousPageIndex) {
-        this.page.set(this.page() + 1);
-      } else {
-        this.page.set(this.page() - 1);
-      }
-    }
+    this.page.set(event.pageIndex === 0 ? 1 : event.pageIndex + 1);
     this.fetchUsers();
   }
 }
