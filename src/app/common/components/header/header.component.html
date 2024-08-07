@@ -1,17 +1,12 @@
-<mat-toolbar class="flex-container">
-  <div class="flex-container">
-    <button mat-icon-button [routerLink]="HomeURL">
-      <mat-icon>dashboard</mat-icon>
-    </button>
-    <span>User Dashboard</span>
-  </div>
-  <span>
-    <a
-      href="https://github.com/OmarKnows/user-dashboard"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <mat-icon>code</mat-icon>
-    </a>
-  </span>
-</mat-toolbar>
+<header class="header">
+  <ng-icon name="bootstrapGrid1x2Fill" size="24"></ng-icon>
+  <div>User Dashboard</div>
+  <input type="text" placeholder="Search" class="search-input" />
+  <a
+    href="https://github.com/OmarKnows/user-dashboard"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <ng-icon name="bootstrapGithub" size="24"></ng-icon>
+  </a>
+</header>
