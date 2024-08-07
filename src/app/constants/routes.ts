@@ -1,4 +1,4 @@
 export enum ROUTES {
   HOME = '',
-  USER = 'users',
+  USERS = 'users',
 }

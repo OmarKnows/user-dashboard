@@ -16,11 +16,11 @@ export const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: ROUTES.USER,
+        path: ROUTES.USERS,
         component: UserListComponent,
       },
       {
-        path: `${ROUTES.USER}/:id`,
+        path: `${ROUTES.USERS}/:id`,
         component: UserDetailsComponent,
       },
     ],
