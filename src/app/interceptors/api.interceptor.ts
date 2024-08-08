@@ -1,7 +1,8 @@
 import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FAKE_ENV } from '../constants/fakeEnv';
 
-const BASE_URL = 'https://reqres.in/api/';
+const BASE_URL = FAKE_ENV.BASE_URL;
 
 export function ApiInterceptor(
   req: HttpRequest<unknown>,
