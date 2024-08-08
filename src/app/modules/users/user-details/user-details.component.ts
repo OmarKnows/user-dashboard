@@ -35,8 +35,8 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading.set(true);
     const subscription = this.usersService.getUser(this.id()).subscribe({
-      next: (user) => {
-        this.user.set(user);
+      next: (response) => {
+        this.user.set(response.data);
       },
       error: (error: Error) => {
         this.error.set(error.message);
