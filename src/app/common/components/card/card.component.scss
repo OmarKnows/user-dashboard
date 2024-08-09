@@ -21,7 +21,7 @@
 }
 
 .link-container {
-  background-color: rgb(165, 69, 212);
+  background: linear-gradient(to right, #4b0082, #7f33cc);
   flex-grow: 1;
   width: 100%;
   display: flex;
@@ -31,11 +31,10 @@
 
 a {
   text-decoration: none;
-  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #000000;
+  color: white;
 }
 
 p {
