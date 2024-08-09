@@ -1,1 +1,20 @@
-<button mat-flat-button [routerLink]="UsersLink">Go To Users</button>
+<div class="center">
+  <p>Greetings, and welcome to my project submission.</p>
+  <p>
+    This application was made using Angular 18 and Angular Material,
+    complemented by a selection of icons from Angular Icons.
+  </p>
+  <p>
+    It is important to highlight that global state management was intentionally
+    omitted. Given the scope of this project, such an implementation would
+    introduce unnecessary complexity without providing a meaningful benefit.
+  </p>
+  <p>
+    Additionally, the search functionality should not be client-sided.
+    Performing searches on paginated data in the frontend would limit the search
+    results to the current page, failing to provide the comprehensive results
+    expected.
+  </p>
+  <p>To explore the list of users, please click the button below.</p>
+  <button mat-flat-button [routerLink]="UsersLink">View Users List</button>
+</div>
