@@ -1,5 +1,5 @@
 .header {
-  background-color: #9a50e7;
+  background: linear-gradient(to right, #4b0082, #7f33cc);
   color: white;
   display: flex;
   align-items: center;
@@ -8,13 +8,12 @@
   gap: 8px;
 }
 
-.search-input {
-  border: none;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem;
-  border-radius: 5px;
-  width: 200px;
+.search-container {
+  width: 400px;
   margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .search-input::placeholder {
@@ -29,6 +28,7 @@ a {
   font-weight: 500;
   font-size: 20px;
   transition-duration: 200ms;
+  color: white;
 }
 
 a:active {

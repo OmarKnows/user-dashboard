@@ -3,12 +3,21 @@
     <ng-icon name="bootstrapGrid1x2Fill" size="24"></ng-icon>
     <div>User Dashboard</div>
   </a>
-  <input type="text" placeholder="Search" class="search-input" />
+  <mat-form-field class="search-container">
+    <mat-label>Search</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput type="text" [(ngModel)]="search" />
+    @if (search) {
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="search = ''">
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
   <a
     href="https://github.com/OmarKnows/user-dashboard"
     target="_blank"
     rel="noopener noreferrer"
   >
-    <ng-icon name="bootstrapGithub" size="24"></ng-icon>
+    <ng-icon name="bootstrapGithub" size="50"></ng-icon>
   </a>
 </header>
