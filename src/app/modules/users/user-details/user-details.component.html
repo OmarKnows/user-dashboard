@@ -1,18 +1,20 @@
 @if(isLoading()){
 <mat-progress-bar mode="indeterminate" class="w-100"></mat-progress-bar>
-}
-<div class="flex-container">
-  <button mat-flat-button class="flex-container" routerLink="..">
-    <ng-icon name="heroArrowLeft" size="20"></ng-icon>
-  </button>
-
-  <div class="user-details-container">
-    <div class="user-info">
-      <img [src]="user()?.avatar" alt="avatar" class="avatar" />
-      <div class="user-name">
-        <h1>{{ user()?.first_name }} {{ user()?.last_name }}</h1>
-        <p class="email">{{ user()?.email }}</p>
+}@else {
+<div class="center">
+  <div class="flex-container">
+    <div class="user-details-container">
+      <div class="user-info">
+        <img [src]="user()?.avatar" alt="avatar" class="avatar" />
+        <div class="user-name">
+          <h1>{{ user()?.first_name }} {{ user()?.last_name }}</h1>
+          <p class="email">{{ user()?.email }}</p>
+        </div>
       </div>
     </div>
+    <button mat-flat-button class="flex-container right" routerLink="..">
+      <ng-icon name="heroArrowLeft" size="20"></ng-icon>
+    </button>
   </div>
 </div>
+}
